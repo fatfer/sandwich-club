@@ -3,6 +3,7 @@ package com.udacity.sandwichclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -81,21 +82,9 @@ public class DetailActivity extends AppCompatActivity {
 
         origin_tv.setText(sandwich.getPlaceOfOrigin());
         description_tv.setText(sandwich.getDescription());
-        ingredients_tv.setText(getStringSeparatedByCommasFromList(sandwich.getIngredients()));
-        also_known_tv.setText(getStringSeparatedByCommasFromList(sandwich.getAlsoKnownAs()));
+        ingredients_tv.setText(TextUtils.join(", ", sandwich.getIngredients()));
+        also_known_tv.setText(TextUtils.join(", ", sandwich.getAlsoKnownAs()));
 
     }
 
-    private String getStringSeparatedByCommasFromList(List<String> list){
-        final String SEPARATOR = ", ";
-        StringBuilder builder = new StringBuilder();
-        for (String item:list) {
-            builder.append(item);
-            builder.append(SEPARATOR);
-        }
-        String composed = builder.toString();
-        if(composed.length() > 0)
-        composed = composed.substring(0, composed.length() - SEPARATOR.length());
-        return composed;
-    }
 }
