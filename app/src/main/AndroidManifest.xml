@@ -20,10 +20,6 @@
         </activity>
         <activity android:name=".DetailActivity"
             android:parentActivityName="com.udacity.sandwichclub.MainActivity">
-            <!-- The meta-data element is needed for versions lower than 4.1 -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.udacity.sandwichclub.MainActivity" />
         </activity>
     </application>
 
