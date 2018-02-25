@@ -24,11 +24,11 @@ public class JsonUtils {
 
         JSONObject jsonObject = new JSONObject(json);
         JSONObject name = jsonObject.getJSONObject(JSON_NAME_KEY);
-        sandwich.setMainName(name.getString(JSON_MAIN_NAME_KEY));
+        sandwich.setMainName(name.optString(JSON_MAIN_NAME_KEY));
         sandwich.setAlsoKnownAs(jsonArrayToList(name.getJSONArray(JSON_ALSO_KNOWN_AS_KEY)));
-        sandwich.setPlaceOfOrigin(jsonObject.getString(JSON_PLACE_OF_ORIGIN_KEY));
-        sandwich.setDescription(jsonObject.getString(JSON_DESCRIPTION_KEY));
-        sandwich.setImage(jsonObject.getString(JSON_IMAGE_KEY));
+        sandwich.setPlaceOfOrigin(jsonObject.optString(JSON_PLACE_OF_ORIGIN_KEY));
+        sandwich.setDescription(jsonObject.optString(JSON_DESCRIPTION_KEY));
+        sandwich.setImage(jsonObject.optString(JSON_IMAGE_KEY));
         sandwich.setIngredients(jsonArrayToList(jsonObject.getJSONArray(JSON_INGREDIENTS_KEY)));
 
         return sandwich;
